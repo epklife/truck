@@ -4,459 +4,295 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blue Maverick Delivery - Bay Area Transport & Pickup</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        header {
-            background: linear-gradient(135deg, #0066cc 0%, #004da6 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        header p {
-            font-size: 1.3em;
-            opacity: 0.95;
-        }
-
-        nav {
-            background: #004da6;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            padding: 0 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.3s;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 60px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        section h2 {
-            font-size: 2.2em;
-            color: #0066cc;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .hero-image {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .service-card {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 5px solid #0066cc;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        }
-
-        .service-card h3 {
-            color: #0066cc;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 25px;
-        }
-
-        .feature-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-
-        .feature h3 {
-            color: #0066cc;
-            margin-bottom: 10px;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #0066cc 0%, #004da6 100%);
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-            margin: 40px 0;
-            border-radius: 10px;
-        }
-
-        .cta-section h2 {
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #0066cc;
-        }
-
-        .btn-primary:hover {
-            background: #f0f0f0;
-            transform: scale(1.05);
-        }
-
-        .btn-secondary {
-            background: #ff6b35;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: #e55a28;
-            transform: scale(1.05);
-        }
-
-        .pricing {
-            background: #f8f9fa;
-            padding: 40px;
-            border-radius: 10px;
-            margin: 30px 0;
-        }
-
-        .pricing h3 {
-            color: #0066cc;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .pricing p {
-            color: #666;
-            font-size: 0.95em;
-            line-height: 1.8;
-        }
-
-        .highlight {
-            background: #fff3cd;
-            padding: 20px;
-            border-radius: 5px;
-            border-left: 5px solid #ff6b35;
-            margin: 20px 0;
-        }
-
-        .highlight strong {
-            color: #ff6b35;
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-        }
-
-        footer p {
-            margin: 5px 0;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            header p {
-                font-size: 1em;
-            }
-
-            nav ul {
-                gap: 15px;
-                flex-direction: column;
-            }
-
-            section h2 {
-                font-size: 1.6em;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>🚙 Blue Maverick Delivery</h1>
-        <p>Your Friendly Neighborhood Truck Service for the Bay Area</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#features">Why Us</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#ikea-route">IKEA Route</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <!-- ===== Navbar ===== -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="#top" class="nav-logo"><span>🚙</span> Blue Maverick</a>
+            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-menu">
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#features">Why Us</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#ikea-route">IKEA Route</a></li>
+                <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <div class="container">
-        <section class="hero-image">
-            <h2>Meet Your New Delivery Partner</h2>
-            <p style="text-align: center; color: #666; margin: 20px 0;">A reliable blue Maverick ready to help with all your local transport needs</p>
-            <img src="truck1.jpg" alt="Blue Maverick pickup truck loaded with firewood" loading="lazy">
-        </section>
-
-        <section id="gallery">
-            <h2>Our Truck in Action</h2>
-            <div class="services-grid">
-                <div class="service-card" style="padding: 0; border-left: none; overflow: hidden;">
-                    <img src="truck1.jpg" alt="Blue Maverick truck bed loaded with split firewood" style="width: 100%; height: 220px; object-fit: cover; display: block;">
-                    <p style="padding: 15px; color: #666; font-size: 0.95em;">Hauling firewood and heavy materials with ease.</p>
-                </div>
-                <div class="service-card" style="padding: 0; border-left: none; overflow: hidden;">
-                    <img src="truck2.jpg" alt="Blue Maverick truck with mountain bikes on a rear hitch rack" style="width: 100%; height: 220px; object-fit: cover; display: block;">
-                    <p style="padding: 15px; color: #666; font-size: 0.95em;">Bikes, gear, and event equipment transported safely.</p>
-                </div>
-                <div class="service-card" style="padding: 0; border-left: none; overflow: hidden;">
-                    <img src="truck3.jpg" alt="Blue Maverick truck parked outside a garden center" style="width: 100%; height: 220px; object-fit: cover; display: block;">
-                    <p style="padding: 15px; color: #666; font-size: 0.95em;">Pickup runs to the hardware store and beyond.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="services">
-            <h2>What We Can Help With</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>🏪 Furniture & Retail Pickup</h3>
-                    <p>IKEA, Home Depot, local furniture stores, garden centers, and anywhere else you need items hauled. We handle the heavy lifting so you don't have to.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🎉 Event & Party Rentals</h3>
-                    <p>Transport tables, chairs, equipment, and party supplies for your next event. We'll get everything there safely and on time.</p>
-                </div>
-                <div class="service-card">
-                    <h3>📦 Local Deliveries</h3>
-                    <p>Small to medium packages, parcels, and goods throughout the Bay Area. Professional handling and delivery tracking.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🍽️ Catering & Food Service Transport</h3>
-                    <p>Reliable transport for catering equipment, bulk food orders, and serving supplies. Safe, secure, and timely delivery.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🏗️ Heavy & Rough Materials</h3>
-                    <p>Lumber, building materials, landscaping supplies, and other robust goods. We're built for the tough stuff.</p>
-                </div>
-                <div class="service-card">
-                    <h3>👥 Neighbor-to-Neighbor Help</h3>
-                    <p>Think of us as a helpful neighbor with a truck. Whatever you'd ask a friend to help move (legally & ethically), we're here for it!</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="features">
-            <h2>Why Choose Blue Maverick?</h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">🙋</div>
-                    <h3>Driver Included</h3>
-                    <p>Professional driver ensures safe transport and handling of your items.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💰</div>
-                    <h3>Reasonable Rates</h3>
-                    <p>Fair, transparent pricing that won't break the bank for local moves.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Safe & Secure</h3>
-                    <p>Your items are secured and protected throughout transport.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">⏱️</div>
-                    <h3>Reliable & Punctual</h3>
-                    <p>Count on us to show up on time and get the job done right.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Friendly Service</h3>
-                    <p>Treated like you're asking a friend for help – because basically, you are!</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🚗</div>
-                    <h3>Self-Drive Option</h3>
-                    <p>Rent the truck yourself with ID verification and deposit (case by case).</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="ikea-route">
-            <h2>🏪 The IKEA Route Special</h2>
-            <div class="highlight">
-                <h3 style="color: #ff6b35; margin-bottom: 15px;">📍 3x Weekly Route: Palo Alto IKEA ↔ Fremont (with surrounding radius)</h3>
-                <p><strong>Get discounted rates</strong> when you coordinate with our regular Palo Alto IKEA to Fremont route (runs 3 times per week)!</p>
-                <p style="margin-top: 15px;"><strong>How to take advantage:</strong></p>
-                <ul style="margin-left: 20px; margin-top: 10px; color: #666;">
-                    <li>Shop at Palo Alto IKEA and let us know your purchase timeline</li>
-                    <li>Coordinate pickup to align with our route schedule</li>
-                    <li>Be ready for fast, efficient pickup and delivery</li>
-                    <li>Enjoy special pricing for route alignment</li>
-                </ul>
-                <p style="margin-top: 15px; color: #666;"><em>Flexibility is key – the faster and more efficient you can make it, the better the discount!</em></p>
-            </div>
-        </section>
-
-        <section id="pricing">
-            <h2>Pricing Guide</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 30px;">Rates vary based on distance, load size, and complexity. Here are some examples:</p>
-            <div class="services-grid">
-                <div class="pricing">
-                    <h3>Short Haul (Under 15 miles)</h3>
-                    <p>$35–$65</p>
-                    <p style="font-size: 0.9em; margin-top: 10px;">Local pickups within Bay Area. Perfect for furniture store runs or local deliveries.</p>
-                </div>
-                <div class="pricing">
-                    <h3>Medium Haul (15–30 miles)</h3>
-                    <p>$65–$120</p>
-                    <p style="font-size: 0.9em; margin-top: 10px;">Cross-town deliveries and standard logistics. Includes driver.</p>
-                </div>
-                <div class="pricing">
-                    <h3>Long Haul (30+ miles)</h3>
-                    <p>$120+</p>
-                    <p style="font-size: 0.9em; margin-top: 10px;">Extended Bay Area coverage. Custom quote based on distance and load.</p>
-                </div>
-                <div class="pricing">
-                    <h3>IKEA Route Discount</h3>
-                    <p>Special Rate</p>
-                    <p style="font-size: 0.9em; margin-top: 10px;">Align with 3x weekly route for reduced pricing. Contact for details.</p>
-                </div>
-            </div>
-            <div class="highlight" style="margin-top: 30px;">
-                <p><strong>Self-Drive Option Available:</strong> Rent the truck for DIY transport with ID verification and a deposit (case by case basis).</p>
-                <p style="margin-top: 10px;"><strong>All rates are flexible and negotiable based on your specific needs.</strong></p>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <h2>Ready to Move Something?</h2>
-            <p>Get in touch today for a quick quote or to schedule your pickup/delivery</p>
-            <div class="cta-buttons">
-                <a href="mailto:kos@epkstay.com?subject=Truck%20rental%20request" class="btn btn-primary">📧 Email Us</a>
+    <!-- ===== Hero ===== -->
+    <header class="hero" id="top">
+        <div class="hero-content">
+            <h1>Need Something Hauled in the Bay Area?</h1>
+            <p>Your friendly neighborhood truck service for furniture, materials, and everything in between.</p>
+            <div class="hero-buttons">
+                <a href="#quote" class="btn btn-primary">Get a Free Quote</a>
                 <a href="tel:+15125221528" class="btn btn-secondary">📱 Call Now</a>
             </div>
-        </section>
+        </div>
+    </header>
 
-        <section>
-            <h2>A Few Ground Rules</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 30px;">We're here to help the community, with a few important boundaries:</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>✅ What We Do</h3>
-                    <p>Legal goods, ethical services, community-focused transport, furniture, materials, catering equipment, party supplies, local deliveries, and the kinds of things you'd ask a friend to help with.</p>
-                </div>
-                <div class="service-card">
-                    <h3>❌ What We Don't Do</h3>
-                    <p>Prohibited items, illegal goods, unethical services, hazardous materials, or anything that could put safety at risk. We operate with integrity and community values.</p>
+    <main>
+        <!-- ===== Gallery ===== -->
+        <section id="gallery">
+            <div class="container">
+                <h2>Our Truck in Action</h2>
+                <p class="section-sub">A reliable blue Maverick ready to help with all your local transport needs</p>
+                <div class="gallery-grid">
+                    <div class="gallery-card">
+                        <img src="truck1.jpg" alt="Blue Maverick truck bed loaded with split firewood" loading="lazy">
+                        <p>Hauling firewood and heavy materials with ease.</p>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="truck2.jpg" alt="Blue Maverick truck with mountain bikes on a rear hitch rack" loading="lazy">
+                        <p>Bikes, gear, and event equipment transported safely.</p>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="truck3.jpg" alt="Blue Maverick truck parked outside a garden center" loading="lazy">
+                        <p>Pickup runs to the hardware store and beyond.</p>
+                    </div>
                 </div>
             </div>
         </section>
-    </div>
 
+        <!-- ===== Services ===== -->
+        <section id="services">
+            <div class="container">
+                <h2>What We Can Help With</h2>
+                <p class="section-sub">From furniture runs to heavy materials — we've got the truck and the muscle.</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>🏪 Furniture & Retail Pickup</h3>
+                        <p>IKEA, Home Depot, local furniture stores, garden centers, and anywhere else you need items hauled. We handle the heavy lifting so you don't have to.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🎉 Event & Party Rentals</h3>
+                        <p>Transport tables, chairs, equipment, and party supplies for your next event. We'll get everything there safely and on time.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📦 Local Deliveries</h3>
+                        <p>Small to medium packages, parcels, and goods throughout the Bay Area. Professional handling and delivery tracking.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🍽️ Catering & Food Service Transport</h3>
+                        <p>Reliable transport for catering equipment, bulk food orders, and serving supplies. Safe, secure, and timely delivery.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🏗️ Heavy & Rough Materials</h3>
+                        <p>Lumber, building materials, landscaping supplies, and other robust goods. We're built for the tough stuff.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>👥 Neighbor-to-Neighbor Help</h3>
+                        <p>Think of us as a helpful neighbor with a truck. Whatever you'd ask a friend to help move (legally & ethically), we're here for it!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Features ===== -->
+        <section id="features">
+            <div class="container">
+                <h2>Why Choose Blue Maverick?</h2>
+                <p class="section-sub">More than just a truck — a partner you can count on.</p>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">🙋</div>
+                        <h3>Driver Included</h3>
+                        <p>Professional driver ensures safe transport and handling of your items.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💰</div>
+                        <h3>Reasonable Rates</h3>
+                        <p>Fair, transparent pricing that won't break the bank for local moves.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Safe & Secure</h3>
+                        <p>Your items are secured and protected throughout transport.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">⏱️</div>
+                        <h3>Reliable & Punctual</h3>
+                        <p>Count on us to show up on time and get the job done right.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Friendly Service</h3>
+                        <p>Treated like you're asking a friend for help – because basically, you are!</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🚗</div>
+                        <h3>Self-Drive Option</h3>
+                        <p>Rent the truck yourself with ID verification and deposit (case by case).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== IKEA Route ===== -->
+        <section id="ikea-route">
+            <div class="container">
+                <h2>🏪 The IKEA Route Special</h2>
+                <p class="section-sub">Save more when you align with our regular weekly route.</p>
+                <div class="highlight">
+                    <h3>📍 3x Weekly Route: Palo Alto IKEA ↔ Fremont (with surrounding radius)</h3>
+                    <p><strong>Get discounted rates</strong> when you coordinate with our regular Palo Alto IKEA to Fremont route (runs 3 times per week)!</p>
+                    <p style="margin-top: 15px;"><strong>How to take advantage:</strong></p>
+                    <ul>
+                        <li>Shop at Palo Alto IKEA and let us know your purchase timeline</li>
+                        <li>Coordinate pickup to align with our route schedule</li>
+                        <li>Be ready for fast, efficient pickup and delivery</li>
+                        <li>Enjoy special pricing for route alignment</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: var(--text-muted);"><em>Flexibility is key – the faster and more efficient you can make it, the better the discount!</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Pricing ===== -->
+        <section id="pricing">
+            <div class="container">
+                <h2>Pricing Guide</h2>
+                <p class="section-sub">Rates vary based on distance, load size, and complexity. All rates are flexible and negotiable.</p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Short Haul</h3>
+                        <div class="price">$35–$65</div>
+                        <p>Under 15 miles. Local pickups within the Bay Area. Perfect for furniture store runs or local deliveries.</p>
+                        <a href="#quote" class="btn btn-blue">Get a Quote</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <div class="badge">Most Popular</div>
+                        <h3>Medium Haul</h3>
+                        <div class="price">$65–$120</div>
+                        <p>15–30 miles. Cross-town deliveries and standard logistics. Driver included.</p>
+                        <a href="#quote" class="btn btn-primary">Get a Quote</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Long Haul</h3>
+                        <div class="price">$120+</div>
+                        <p>30+ miles. Extended Bay Area coverage. Custom quote based on distance and load.</p>
+                        <a href="#quote" class="btn btn-blue">Get a Quote</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <div class="badge">Best Value</div>
+                        <h3>IKEA Route Discount</h3>
+                        <div class="price">Special Rate</div>
+                        <p>Align with our 3x weekly route for reduced pricing. Contact for details.</p>
+                        <a href="#quote" class="btn btn-primary">Get a Quote</a>
+                    </div>
+                </div>
+                <div class="pricing-note">
+                    <p><strong>Self-Drive Option Available:</strong> Rent the truck for DIY transport with ID verification and a deposit (case by case basis).</p>
+                    <p style="margin-top: 10px;"><strong>All rates are flexible and negotiable based on your specific needs.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Quote Form ===== -->
+        <section id="quote">
+            <div class="container">
+                <h2>Get a Free Quote</h2>
+                <p class="quote-sub">Tell us what you need moved and we'll get back to you fast.</p>
+                <form class="quote-form" id="quote-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">Phone or Email</label>
+                            <input type="text" id="contact" name="contact" placeholder="(510) 555-1234" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pickup">Pickup Location</label>
+                            <input type="text" id="pickup" name="pickup" placeholder="Palo Alto IKEA" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dropoff">Drop-off Location</label>
+                            <input type="text" id="dropoff" name="dropoff" placeholder="Fremont, CA" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Type</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service…</option>
+                                <option>Furniture / Retail Pickup</option>
+                                <option>Event & Party Rentals</option>
+                                <option>Local Delivery</option>
+                                <option>Catering Transport</option>
+                                <option>Heavy / Rough Materials</option>
+                                <option>IKEA Route Special</option>
+                                <option>Self-Drive Rental</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="details">What do you need moved?</label>
+                        <textarea id="details" name="details" placeholder="e.g. A sofa and dining table from IKEA, plus a few boxes"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Request My Quote</button>
+                </form>
+                <div class="form-success" id="form-success">
+                    ✅ Your email client is opening with your quote request. If it didn't, email us directly at kos@epkstay.com.
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA Banner ===== -->
+        <section class="cta-banner">
+            <div class="container">
+                <h2>Ready to Move Something?</h2>
+                <p>Get in touch today for a quick quote or to schedule your pickup/delivery.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:kos@epkstay.com?subject=Truck%20rental%20request" class="btn btn-primary">📧 Email Us</a>
+                    <a href="tel:+15125221528" class="btn btn-secondary">📱 Call (512) 522-1528</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Ground Rules ===== -->
+        <section id="rules">
+            <div class="container">
+                <h2>A Few Ground Rules</h2>
+                <p class="section-sub">We're here to help the community, with a few important boundaries:</p>
+                <div class="rules-grid">
+                    <div class="service-card">
+                        <h3>✅ What We Do</h3>
+                        <p>Legal goods, ethical services, community-focused transport, furniture, materials, catering equipment, party supplies, local deliveries, and the kinds of things you'd ask a friend to help with.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>❌ What We Don't Do</h3>
+                        <p>Prohibited items, illegal goods, unethical services, hazardous materials, or anything that could put safety at risk. We operate with integrity and community values.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
     <footer id="contact">
         <p><strong>Blue Maverick Delivery – Bay Area</strong></p>
-        <p>📧 Email: <a href="mailto:kos@epkstay.com?subject=Truck%20rental%20request" style="color: #0066cc; text-decoration: none;">kos@epkstay.com</a> (Subject: Truck rental request)</p>
-        <p>📱 Phone: <a href="tel:+15125221528" style="color: #0066cc; text-decoration: none;">(512) 522-1528</a></p>
-        <p style="margin-top: 15px; opacity: 0.8;">Serving the Bay Area community with reliable, friendly truck delivery service</p>
-        <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.7;">© 2024 Blue Maverick Delivery. All rights reserved.</p>
+        <p>📧 Email: <a href="mailto:kos@epkstay.com?subject=Truck%20rental%20request">kos@epkstay.com</a> (Subject: Truck rental request)</p>
+        <p>📱 Phone: <a href="tel:+15125221528">(512) 522-1528</a></p>
+        <p class="footer-tagline">Serving the Bay Area community with reliable, friendly truck delivery service</p>
+        <p class="footer-copy">© 2024 Blue Maverick Delivery. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
