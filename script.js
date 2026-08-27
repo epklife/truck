@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       var mailto =
         'mailto:kos@epkstay.com' +
-        '?subject=' + encodeURIComponent('Quote Request - Blue Maverick Delivery') +
+        '?subject=' + encodeURIComponent('Quote Request - EPKTruck') +
         '&body=' + encodeURIComponent(body);
 
       window.location.href = mailto;
